@@ -11,7 +11,7 @@ import com.example.order_service.entity.Order;
 import com.example.order_service.service.OrderService;
 
 @RestController
-@RequestMapping("api/v1/orders")
+@RequestMapping("/api/v1/orders")
 public class OrderController {
 
     private final OrderService orderService;
