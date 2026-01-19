@@ -13,6 +13,12 @@ spring:
           lower-case-service-id: true
 
       routes:
+        # USER SERVICE (PUBLIC)
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/auth/**
+
         - id: order-service
           uri: lb://order-service
           predicates:
@@ -27,3 +33,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+jwt:
+  secret: my-super-secret-key
