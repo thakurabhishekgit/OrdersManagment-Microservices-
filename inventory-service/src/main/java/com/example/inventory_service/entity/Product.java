@@ -24,5 +24,4 @@ public class Product {
 
     private Integer stock;
 
-    // getters & setters
 }
