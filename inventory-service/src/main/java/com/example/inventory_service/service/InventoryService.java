@@ -21,7 +21,10 @@ public class InventoryService {
         return product.getStock() >= quantity;
     }
 
-    public Product addProduct(Product product) {
+    public Product addProduct(String name, int stock) {
+        Product product = new Product();
+        product.setName(name);
+        product.setStock(stock);
         return productRepository.save(product);
     }
 }

@@ -29,6 +29,6 @@ public class InventoryController {
 
     @PostMapping("/addStock")
     public Product addProduct(@RequestBody Product product) {
-        return inventoryService.addProduct(product);
+        return inventoryService.addProduct(product.getName(), product.getStock());
     }
 }
