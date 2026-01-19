@@ -1,6 +1,7 @@
 package com.example.inventory_service.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,5 +36,10 @@ public class InventoryController {
     @PostMapping("/updateStock")
     public Product updateStock(@RequestParam String productId, @RequestParam int quantity) {
         return inventoryService.updateStockProductCount(productId, quantity);
+    }
+
+    @GetMapping("/product/{productId}")
+    public Product getProductById(@PathVariable String productId) {
+        return inventoryService.getProductById(productId);
     }
 }

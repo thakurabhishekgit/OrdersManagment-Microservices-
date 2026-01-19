@@ -35,4 +35,9 @@ public class InventoryService {
         product.setStock(product.getStock() - quantity);
         return productRepository.save(product);
     }
+
+    public Product getProductById(String productId) {
+        return productRepository.findById(productId)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+    }
 }

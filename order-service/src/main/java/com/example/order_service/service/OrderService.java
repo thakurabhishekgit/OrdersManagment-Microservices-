@@ -12,7 +12,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final InventoryClient inventoryClient;
 
-    // 🔴 FUTURE (Kafka)
+    // FUTURE (Kafka)
     // private final KafkaTemplate<String, OrderCreatedEvent> kafkaTemplate;
 
     public OrderService(
@@ -33,7 +33,6 @@ public class OrderService {
             throw new RuntimeException("Product is out of stock");
         }
 
-        // 2️⃣ Save order
         Order order = new Order();
         order.setUserId(userId);
         order.setProductId(productId);
