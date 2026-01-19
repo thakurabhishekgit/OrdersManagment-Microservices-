@@ -20,4 +20,8 @@ public class InventoryService {
 
         return product.getStock() >= quantity;
     }
+
+    public Product addProduct(Product product) {
+        return productRepository.save(product);
+    }
 }
