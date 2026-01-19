@@ -31,4 +31,9 @@ public class InventoryController {
     public Product addProduct(@RequestBody Product product) {
         return inventoryService.addProduct(product.getName(), product.getStock());
     }
+
+    @PostMapping("/updateStock")
+    public Product updateStock(@RequestParam String productId, @RequestParam int quantity) {
+        return inventoryService.updateStockProductCount(productId, quantity);
+    }
 }

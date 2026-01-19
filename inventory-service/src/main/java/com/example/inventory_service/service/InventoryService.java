@@ -27,4 +27,12 @@ public class InventoryService {
         product.setStock(stock);
         return productRepository.save(product);
     }
+
+    public Product updateStockProductCount(String productId, int quantity) {
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+
+        product.setStock(product.getStock() - quantity);
+        return productRepository.save(product);
+    }
 }
