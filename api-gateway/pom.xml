@@ -25,22 +25,22 @@
         <spring-cloud.version>2023.0.1</spring-cloud.version>
     </properties>
 
-    <!-- Dependencies -->
+    <!-- ================= DEPENDENCIES ================= -->
     <dependencies>
 
-        <!-- Reactive Gateway -->
+        <!-- Spring Cloud Gateway (Reactive) -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
-        <!-- Eureka -->
+        <!-- Eureka Discovery Client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-        <!-- JWT (STABLE) -->
+        <!-- JWT (Stable & Compatible) -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
@@ -59,11 +59,16 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Spring Boot Test (REQUIRED to fix JUnit errors) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
-
-    <!-- Spring Cloud BOM -->
+    <!-- ================= SPRING CLOUD BOM ================= -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -76,7 +81,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- Build -->
+    <!-- ================= BUILD ================= -->
     <build>
         <plugins>
             <plugin>
