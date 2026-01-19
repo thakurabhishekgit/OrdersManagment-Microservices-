@@ -1,4 +1,4 @@
-package com.example.order_service.utils;
+package com.example.user_service.utils;
 
 import com.example.user_service.entity.AppUser;
 import io.jsonwebtoken.Jwts;
