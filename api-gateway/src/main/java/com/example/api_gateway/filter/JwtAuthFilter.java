@@ -26,11 +26,11 @@ public class JwtAuthFilter implements GlobalFilter {
             GatewayFilterChain chain) {
 
         String path = exchange.getRequest().getURI().getPath();
-        System.out.println("➡️ Incoming request path: " + path);
+        System.out.println(" Incoming request path: " + path);
 
         // PUBLIC ENDPOINTS
         if (path.contains("/auth")) {
-            System.out.println("✅ Public endpoint, skipping JWT check");
+            System.out.println(" Public endpoint, skipping JWT check");
             return chain.filter(exchange);
         }
 
@@ -41,13 +41,13 @@ public class JwtAuthFilter implements GlobalFilter {
         System.out.println("🔐 Authorization header: " + authHeader);
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            System.out.println("❌ Missing or invalid Authorization header");
+            System.out.println(" Missing or invalid Authorization header");
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
             return exchange.getResponse().setComplete();
         }
 
         String token = authHeader.substring(7);
-        System.out.println("🧾 Extracted JWT: " + token);
+        System.out.println("Extracted JWT: " + token);
 
         try {
             Claims claims = Jwts.parser()
@@ -58,9 +58,9 @@ public class JwtAuthFilter implements GlobalFilter {
             String userId = claims.getSubject();
             String role = claims.get("role", String.class);
 
-            System.out.println("✅ JWT validated successfully");
-            System.out.println("👤 UserId: " + userId);
-            System.out.println("🎭 Role: " + role);
+            System.out.println(" JWT validated successfully");
+            System.out.println(" UserId: " + userId);
+            System.out.println(" Role: " + role);
 
             ServerHttpRequest mutatedRequest = exchange.getRequest()
                     .mutate()
@@ -72,7 +72,7 @@ public class JwtAuthFilter implements GlobalFilter {
                     exchange.mutate().request(mutatedRequest).build());
 
         } catch (Exception e) {
-            System.out.println("❌ JWT validation failed: " + e.getMessage());
+            System.out.println(" JWT validation failed: " + e.getMessage());
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
             return exchange.getResponse().setComplete();
         }

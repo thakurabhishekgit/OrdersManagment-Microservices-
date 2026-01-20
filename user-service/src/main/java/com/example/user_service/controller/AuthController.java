@@ -3,7 +3,6 @@ package com.example.user_service.controller;
 import com.example.user_service.dto.AuthResponse;
 import com.example.user_service.dto.LoginRequest;
 import com.example.user_service.dto.RegisterRequest;
-import com.example.user_service.dto.UserAndTokenResponse;
 import com.example.user_service.entity.AppUser;
 import com.example.user_service.repository.UserRepository;
 import com.example.user_service.utils.JwtUtil;
