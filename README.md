@@ -333,5 +333,3 @@ This project demonstrates a **real-world microservices architecture** with:
 * Event-driven design
 
 
-
-Just tell me.
