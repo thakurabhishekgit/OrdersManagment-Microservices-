@@ -19,8 +19,9 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-
+    private String name;
     private String email;
     private String password;
     private String role; // USER / ADMIN
+
 }
