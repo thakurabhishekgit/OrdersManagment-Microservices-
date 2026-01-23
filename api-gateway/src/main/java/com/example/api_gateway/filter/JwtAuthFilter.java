@@ -38,7 +38,7 @@ public class JwtAuthFilter implements GlobalFilter {
                 .getHeaders()
                 .getFirst(HttpHeaders.AUTHORIZATION);
 
-        System.out.println("🔐 Authorization header: " + authHeader);
+        System.out.println(" Authorization header: " + authHeader);
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             System.out.println(" Missing or invalid Authorization header");
@@ -77,4 +77,5 @@ public class JwtAuthFilter implements GlobalFilter {
             return exchange.getResponse().setComplete();
         }
     }
+
 }
