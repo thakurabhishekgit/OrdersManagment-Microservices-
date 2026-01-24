@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-
     private final UserRepository repo;
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
